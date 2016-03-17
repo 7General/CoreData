@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>TicketICloud.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>A48AEF6D1C8C5E2E00F2C7AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A48AEF861C8C5E2E00F2C7AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A48AEF911C8C5E2E00F2C7AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
