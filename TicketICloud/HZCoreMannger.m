@@ -8,6 +8,11 @@
 
 #import "HZCoreMannger.h"
 
+@interface HZCoreMannger ()
+@property (readonly, strong, nonatomic) NSManagedObjectContext       * managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel         * managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator * persistentStoreCoordinator;
+@end
 
 
 @implementation HZCoreMannger
@@ -147,6 +152,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
+    // ********在这里需要修改自己的coredata的名字
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"IColud" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
@@ -159,9 +165,9 @@
     }
     
     // Create the coordinator and store
-    
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"IColud.sqlite"];
+    // ***********要在这里填写创建缓存的数据库的名称
+    NSURL *storeURL = [[self applicationDocumentsDirectory]URLByAppendingPathComponent:@"IColud.sqlite"];
     NSLog(@"sqlitePath:%@",storeURL);
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";

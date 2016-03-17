@@ -24,14 +24,14 @@
 /**
  *  删除
  *
- *  @param name      <#name description#>
+ *  @param name      表名
  *  @param predicate <#predicate description#>
  */
 -(void)deleteDataWithClassName:(NSString*)name predicate:(NSPredicate*)predicate ;
 /**
  *  查询
  *
- *  @param name      <#name description#>
+ *  @param name      表名
  *  @param predicate <#predicate description#>
  *  @param sortkeys  <#sortkeys description#>
  *
@@ -42,11 +42,11 @@
 /**
  *  根据谓词查询分页数据
  *
- *  @param name      <#name description#>
- *  @param predicate <#predicate description#>
- *  @param sortkeys  <#sortkeys description#>
- *  @param index     <#index description#>
- *  @param countData <#countData description#>
+ *  @param name      表名
+ *  @param predicate 谓词
+ *  @param sortkeys  排序字段
+ *  @param index     页码
+ *  @param countData 每页数量
  *
  *  @return <#return value description#>
  */
@@ -55,15 +55,13 @@
 /**
  *  更新
  *
- *  @param name      <#name description#>
+ *  @param name      表名
  *  @param dic       <#dic description#>
  *  @param predicate <#predicate description#>
  */
 -(void)modifyDataWithClassName:(NSString*)name attriDic:(NSDictionary*)dic predicate:(NSPredicate *)predicate;
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext       * managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel         * managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator * persistentStoreCoordinator;
+
 
 
 @end

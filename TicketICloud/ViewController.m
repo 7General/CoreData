@@ -21,7 +21,7 @@
 @property (nonatomic, strong) UIButton * editButton;
 
 @property (nonatomic, strong) UIButton * delButton;
-
+@property (nonatomic, assign) int  pageNumber;
 
 @property (nonatomic, strong) UITextField * userName;
 @end
@@ -94,6 +94,12 @@
        
     }
     
+   NSArray * selectarry =  [[HZCoreMannger defaultManager] selectDataFromClassName:@"Invoce" predicate:predicate sortkeys:nil fromIndex:self.pageNumber rowCount:10];
+    for (NSManagedObject *item in selectarry) {
+        NSString *typeStr = [item valueForKey:@"titles"];
+        NSLog(@"=============>>>>%@",typeStr);
+        
+    }
 }
 
 
