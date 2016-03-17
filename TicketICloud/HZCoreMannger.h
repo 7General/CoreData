@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
+ 
+@interface HZCoreMannger : NSObject
 
-@interface CoreDataManager : NSObject
-
-+ (CoreDataManager*)defaultManager;
++ (HZCoreMannger*)defaultManager;
 /**
  *  添加
  *
@@ -64,7 +64,6 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext       * managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel         * managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator * persistentStoreCoordinator;
-
 
 
 @end

@@ -6,15 +6,17 @@
 //  Copyright © 2016年 王会洲. All rights reserved.
 //
 
-#import "CoreDataManager.h"
+#import "HZCoreMannger.h"
 
-@implementation CoreDataManager
 
-+ (CoreDataManager *)defaultManager {
+
+@implementation HZCoreMannger
+
++ (HZCoreMannger *)defaultManager {
     static dispatch_once_t onceT;
-    static  CoreDataManager *_manager;
+    static  HZCoreMannger *_manager;
     dispatch_once(&onceT, ^{
-        _manager  = [[CoreDataManager alloc]init];
+        _manager  = [[HZCoreMannger alloc]init];
     });
     return _manager;
 }
@@ -22,11 +24,11 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
+       
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(saveContext) name:NSManagedObjectContextObjectsDidChangeNotification object:nil];
     }
     return self;
 }
-
 
 /**
  *  添加
@@ -55,9 +57,9 @@
 /**
  *  根据谓词查询全部数据
  *
- *  @param name      表名
- *  @param predicate 查询谓词
- *  @param sortkeys  排序字段
+ *  @param name      <#name description#>
+ *  @param predicate <#predicate description#>
+ *  @param sortkeys  <#sortkeys description#>
  *
  *  @return <#return value description#>
  */
@@ -81,16 +83,16 @@
 /**
  *  根据谓词查询 分页数据
  *
- *  @param name      表名
- *  @param predicate 谓词
- *  @param sortkeys  排序字段
- *  @param index     页码
- *  @param countData 每页数量
+ *  @param name      <#name description#>
+ *  @param predicate <#predicate description#>
+ *  @param sortkeys  <#sortkeys description#>
+ *  @param index     <#index description#>
+ *  @param countData <#countData description#>
  *
  *  @return <#return value description#>
  */
 -(NSArray*)selectDataFromClassName:(NSString*)name predicate:(NSPredicate*)predicate sortkeys:(NSArray*)sortkeys fromIndex:(NSInteger)index rowCount:(NSInteger)countData {
-    
+
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:name];
     if (countData > 0) {
         [request setFetchLimit:countData];
@@ -115,11 +117,11 @@
 
 
 /**
- *  修改数据库
+ *  更新
  *
- *  @param name      表名
- *  @param dic       要修改的字段 （组装字典）
- *  @param predicate 谓词
+ *  @param name      <#name description#>
+ *  @param dic       <#dic description#>
+ *  @param predicate <#predicate description#>
  */
 -(void)modifyDataWithClassName:(NSString*)name attriDic:(NSDictionary*)dic predicate:(NSPredicate *)predicate{
     NSArray *backArr = [self selectDataFromClassName:name predicate:predicate sortkeys:nil];
@@ -145,7 +147,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TicketCloud" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"IColud" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -159,7 +161,7 @@
     // Create the coordinator and store
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ticketCloud.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"IColud.sqlite"];
     NSLog(@"sqlitePath:%@",storeURL);
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
@@ -206,8 +208,6 @@
         }
     }
 }
-
-
 
 @end
 

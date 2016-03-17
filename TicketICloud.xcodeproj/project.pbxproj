@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		259E6DDF1C92B11600E4D9EF /* Invoce+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E6DDC1C92B11600E4D9EF /* Invoce+CoreDataProperties.m */; };
-		259E6DE01C92B11600E4D9EF /* Invoce.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E6DDE1C92B11600E4D9EF /* Invoce.m */; };
+		259E6DF41C9A8E9100E4D9EF /* HZCoreMannger.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E6DF31C9A8E9100E4D9EF /* HZCoreMannger.m */; };
+		259E6E051C9A929100E4D9EF /* Invoce+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E6E021C9A929100E4D9EF /* Invoce+CoreDataProperties.m */; };
+		259E6E061C9A929100E4D9EF /* Invoce.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E6E041C9A929100E4D9EF /* Invoce.m */; };
 		A48AEF731C8C5E2E00F2C7AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A48AEF721C8C5E2E00F2C7AB /* main.m */; };
 		A48AEF761C8C5E2E00F2C7AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A48AEF751C8C5E2E00F2C7AB /* AppDelegate.m */; };
 		A48AEF791C8C5E2E00F2C7AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48AEF781C8C5E2E00F2C7AB /* ViewController.m */; };
@@ -18,7 +19,6 @@
 		A48AEF8C1C8C5E2E00F2C7AB /* TicketICloudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A48AEF8B1C8C5E2E00F2C7AB /* TicketICloudTests.m */; };
 		A48AEF971C8C5E2E00F2C7AB /* TicketICloudUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A48AEF961C8C5E2E00F2C7AB /* TicketICloudUITests.m */; };
 		A48AEFAB1C8C5E6E00F2C7AB /* IColud.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A48AEFA91C8C5E6E00F2C7AB /* IColud.xcdatamodeld */; };
-		A48AEFAE1C8C5F8700F2C7AB /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A48AEFAD1C8C5F8700F2C7AB /* CoreDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		259E6DDB1C92B11600E4D9EF /* Invoce+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Invoce+CoreDataProperties.h"; path = "TicketICloud/Invoce+CoreDataProperties.h"; sourceTree = "<group>"; };
-		259E6DDC1C92B11600E4D9EF /* Invoce+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Invoce+CoreDataProperties.m"; path = "TicketICloud/Invoce+CoreDataProperties.m"; sourceTree = "<group>"; };
-		259E6DDD1C92B11600E4D9EF /* Invoce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Invoce.h; path = TicketICloud/Invoce.h; sourceTree = "<group>"; };
-		259E6DDE1C92B11600E4D9EF /* Invoce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Invoce.m; path = TicketICloud/Invoce.m; sourceTree = "<group>"; };
+		259E6DF21C9A8E9100E4D9EF /* HZCoreMannger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZCoreMannger.h; sourceTree = "<group>"; };
+		259E6DF31C9A8E9100E4D9EF /* HZCoreMannger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZCoreMannger.m; sourceTree = "<group>"; };
+		259E6E011C9A929100E4D9EF /* Invoce+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Invoce+CoreDataProperties.h"; sourceTree = "<group>"; };
+		259E6E021C9A929100E4D9EF /* Invoce+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Invoce+CoreDataProperties.m"; sourceTree = "<group>"; };
+		259E6E031C9A929100E4D9EF /* Invoce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoce.h; sourceTree = "<group>"; };
+		259E6E041C9A929100E4D9EF /* Invoce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoce.m; sourceTree = "<group>"; };
 		A48AEF6E1C8C5E2E00F2C7AB /* TicketICloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketICloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48AEF721C8C5E2E00F2C7AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A48AEF741C8C5E2E00F2C7AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,8 +62,6 @@
 		A48AEF961C8C5E2E00F2C7AB /* TicketICloudUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketICloudUITests.m; sourceTree = "<group>"; };
 		A48AEF981C8C5E2E00F2C7AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48AEFAA1C8C5E6E00F2C7AB /* IColud.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IColud.xcdatamodel; sourceTree = "<group>"; };
-		A48AEFAC1C8C5F8700F2C7AB /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
-		A48AEFAD1C8C5F8700F2C7AB /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +92,10 @@
 		A48AEF651C8C5E2E00F2C7AB = {
 			isa = PBXGroup;
 			children = (
-				259E6DDB1C92B11600E4D9EF /* Invoce+CoreDataProperties.h */,
-				259E6DDC1C92B11600E4D9EF /* Invoce+CoreDataProperties.m */,
-				259E6DDD1C92B11600E4D9EF /* Invoce.h */,
-				259E6DDE1C92B11600E4D9EF /* Invoce.m */,
+				259E6E011C9A929100E4D9EF /* Invoce+CoreDataProperties.h */,
+				259E6E021C9A929100E4D9EF /* Invoce+CoreDataProperties.m */,
+				259E6E031C9A929100E4D9EF /* Invoce.h */,
+				259E6E041C9A929100E4D9EF /* Invoce.m */,
 				A48AEF701C8C5E2E00F2C7AB /* TicketICloud */,
 				A48AEF8A1C8C5E2E00F2C7AB /* TicketICloudTests */,
 				A48AEF951C8C5E2E00F2C7AB /* TicketICloudUITests */,
@@ -167,8 +167,8 @@
 		A48AEFA51C8C5E4300F2C7AB /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				A48AEFAC1C8C5F8700F2C7AB /* CoreDataManager.h */,
-				A48AEFAD1C8C5F8700F2C7AB /* CoreDataManager.m */,
+				259E6DF21C9A8E9100E4D9EF /* HZCoreMannger.h */,
+				259E6DF31C9A8E9100E4D9EF /* HZCoreMannger.m */,
 				A48AEFA91C8C5E6E00F2C7AB /* IColud.xcdatamodeld */,
 			);
 			name = CoreData;
@@ -304,13 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				259E6DF41C9A8E9100E4D9EF /* HZCoreMannger.m in Sources */,
 				A48AEF791C8C5E2E00F2C7AB /* ViewController.m in Sources */,
 				A48AEF761C8C5E2E00F2C7AB /* AppDelegate.m in Sources */,
-				A48AEFAE1C8C5F8700F2C7AB /* CoreDataManager.m in Sources */,
 				A48AEF731C8C5E2E00F2C7AB /* main.m in Sources */,
 				A48AEFAB1C8C5E6E00F2C7AB /* IColud.xcdatamodeld in Sources */,
-				259E6DDF1C92B11600E4D9EF /* Invoce+CoreDataProperties.m in Sources */,
-				259E6DE01C92B11600E4D9EF /* Invoce.m in Sources */,
+				259E6E051C9A929100E4D9EF /* Invoce+CoreDataProperties.m in Sources */,
+				259E6E061C9A929100E4D9EF /* Invoce.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TicketICloud/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uknower.chinatax.TicketICloud;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -461,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TicketICloud/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uknower.chinatax.TicketICloud;
 				PRODUCT_NAME = "$(TARGET_NAME)";

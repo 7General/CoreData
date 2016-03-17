@@ -7,7 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "CoreDataManager.h"
+#import "HZCoreMannger.h"
+
+
 
 @interface ViewController ()
 
@@ -76,7 +78,7 @@
     NSDictionary * dict = [[NSDictionary alloc] init];
     dict = @{@"invoceid":@"2001",@"kpf":@"京东",@"titles":@"测试公司"};
     
-    [[CoreDataManager defaultManager] insertDataWithClassName:@"Invoce" attriDic:dict];
+    [[HZCoreMannger defaultManager] insertDataWithClassName:@"Invoce" attriDic:dict];
 }
 
 -(void)lookAction {
@@ -84,20 +86,12 @@
 
     
     NSPredicate * predicate = [NSPredicate predicateWithFormat:@" invoceid = %@",@"2001"];
-    NSArray * arry =  [[CoreDataManager defaultManager]selectDataFromClassName:@"Invoce" predicate:predicate sortkeys:nil];
+    NSArray * arry =  [[HZCoreMannger defaultManager]selectDataFromClassName:@"Invoce" predicate:predicate sortkeys:nil];
     //NSLog(@"------%ld",arry.count);
     for (NSManagedObject *item in arry) {
         NSString *typeStr = [item valueForKey:@"titles"];
         NSLog(@"=============>>>>%@",typeStr);
-        //        if (![_newDataDic.allKeys containsObject:typeStr]) {
-//            [ _newDataDic setObject:[[NSMutableArray alloc]init] forKey:typeStr];
-//            [_cateNameArray addObject:typeStr];
-//        }
-//        
-//        ItemModel *itemModel = [[ItemModel alloc] init];
-//        [itemModel setContent:[item valueForKey:@"content"]];
-//        [itemModel setAnswer:[item valueForKey:@"answer"]];
-//        [_newDataDic[typeStr] addObject:itemModel];
+       
     }
     
 }
@@ -110,13 +104,13 @@
     NSDictionary * dict = [[NSDictionary alloc] init];
     dict = @{@"kpf":self.userName.text,@"titles":@"0000测试公司osJoin"};
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@" invoceid = %@",@"2026"];
-    [[CoreDataManager defaultManager] modifyDataWithClassName:@"Invoce" attriDic:dict predicate:predicate];
+    [[HZCoreMannger defaultManager] modifyDataWithClassName:@"Invoce" attriDic:dict predicate:predicate];
 }
 
 -(void)delAction {
     NSLog(@"删除");
     //NSPredicate * predicate = [NSPredicate predicateWithFormat:@" invoceid = %@",@"2026"];
-    [[CoreDataManager defaultManager] deleteDataWithClassName:@"Invoce" predicate:nil];
+    [[HZCoreMannger defaultManager] deleteDataWithClassName:@"Invoce" predicate:nil];
 }
 
 

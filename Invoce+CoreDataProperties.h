@@ -2,7 +2,7 @@
 //  Invoce+CoreDataProperties.h
 //  TicketICloud
 //
-//  Created by 王会洲 on 16/3/11.
+//  Created by 王会洲 on 16/3/17.
 //  Copyright © 2016年 hzbj. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
