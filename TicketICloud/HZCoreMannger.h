@@ -39,6 +39,9 @@
  */
 -(NSArray*)selectDataFromClassName:(NSString*)name predicate:(NSPredicate*)predicate sortkeys:(NSArray*)sortkeys;
 
+
+- (NSArray *)selectDistinctDataFromClassName:(NSString *)name predicate:(NSPredicate *)predicate sortkeys:(NSArray *)sortkeys Distinctkeys:(NSArray *)DistinctArrys;
+
 /**
  *  根据谓词查询分页数据
  *

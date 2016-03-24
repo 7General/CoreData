@@ -14,9 +14,11 @@
 #import "HZCoreMannger.h"
 
 @interface HZCoreMannger ()
+
 @property (readonly, strong, nonatomic) NSManagedObjectContext       * managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel         * managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator * persistentStoreCoordinator;
+
 @end
 
 
@@ -65,6 +67,20 @@
 }
 
 /**
+ *  更新
+ *
+ *  @param name      <#name description#>
+ *  @param dic       <#dic description#>
+ *  @param predicate <#predicate description#>
+ */
+-(void)modifyDataWithClassName:(NSString*)name attriDic:(NSDictionary*)dic predicate:(NSPredicate *)predicate{
+    NSArray *backArr = [self selectDataFromClassName:name predicate:predicate sortkeys:nil];
+    for (NSManagedObject *obj in backArr) {
+        [obj setValuesForKeysWithDictionary:dic];
+    }
+}
+
+/**
  *  根据谓词查询全部数据
  *
  *  @param name      <#name description#>
@@ -74,6 +90,34 @@
  *  @return <#return value description#>
  */
 - (NSArray *)selectDataFromClassName:(NSString *)name predicate:(NSPredicate *)predicate sortkeys:(NSArray *)sortkeys{
+    NSFetchRequest * request = [self selectFromClassName:name predicate:predicate sortkeys:sortkeys Distinctkeys:nil];
+    NSArray *backArr = [self.managedObjectContext executeFetchRequest:request error:nil];
+    return backArr;
+}
+
+/**
+ *  根据谓词查询全部非重复数据
+ *
+ */
+- (NSArray *)selectDistinctDataFromClassName:(NSString *)name predicate:(NSPredicate *)predicate sortkeys:(NSArray *)sortkeys Distinctkeys:(NSArray *)DistinctArrys{
+
+    NSFetchRequest * request = [self selectFromClassName:name predicate:predicate sortkeys:sortkeys Distinctkeys:DistinctArrys];
+    
+    NSArray *backArr = [self.managedObjectContext executeFetchRequest:request error:nil];
+    return backArr;
+}
+/**
+ *  查询全部数据基类
+ *
+ *  @param name          <#name description#>
+ *  @param predicate     <#predicate description#>
+ *  @param sortkeys      <#sortkeys description#>
+ *  @param DistinctArrys <#DistinctArrys description#>
+ *
+ *  @return <#return value description#>
+ */
+-(NSFetchRequest *)selectFromClassName:(NSString *)name predicate:(NSPredicate *)predicate sortkeys:(NSArray *)sortkeys Distinctkeys:(NSArray *)DistinctArrys {
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:name];
     if (predicate) {
         [request setPredicate:predicate];
@@ -86,9 +130,15 @@
         }
         [request setSortDescriptors:sortDescriptorKeys];
     }
-    NSArray *backArr = [self.managedObjectContext executeFetchRequest:request error:nil];
-    return backArr;
+    if (DistinctArrys) {
+        request.resultType = NSDictionaryResultType;
+        [request setPropertiesToFetch:DistinctArrys];
+        [request setReturnsDistinctResults:YES];
+    }
+    
+    return request;
 }
+
 
 /**
  *  根据谓词查询 分页数据
@@ -102,13 +152,11 @@
  *  @return <#return value description#>
  */
 -(NSArray*)selectDataFromClassName:(NSString*)name predicate:(NSPredicate*)predicate sortkeys:(NSArray*)sortkeys fromIndex:(NSInteger)index rowCount:(NSInteger)countData {
-
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:name];
     if (countData > 0) {
         [request setFetchLimit:countData];
     }
     [request setFetchOffset:index * countData];
-    
     if (predicate) {
         [request setPredicate:predicate];
     }
@@ -120,26 +168,16 @@
         }
         [request setSortDescriptors:sortDescriptorKeys];
     }
+//    request.resultType = NSDictionaryResultType;
+//    [request setPropertiesToFetch:@[@"kpf"]];
+//    [request setReturnsDistinctResults:YES];
+    
     NSArray *backArr = [self.managedObjectContext executeFetchRequest:request error:nil];
     return backArr;
 }
 
 
 
-/**
- *  更新
- *
- *  @param name      <#name description#>
- *  @param dic       <#dic description#>
- *  @param predicate <#predicate description#>
- */
--(void)modifyDataWithClassName:(NSString*)name attriDic:(NSDictionary*)dic predicate:(NSPredicate *)predicate{
-    NSArray *backArr = [self selectDataFromClassName:name predicate:predicate sortkeys:nil];
-    for (NSManagedObject *obj in backArr) {
-        [obj setValuesForKeysWithDictionary:dic];
-    }
-    
-}
 
 #pragma mark - Core Data stack
 

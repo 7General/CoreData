@@ -21,6 +21,8 @@
 @property (nonatomic, strong) UIButton * editButton;
 
 @property (nonatomic, strong) UIButton * delButton;
+
+@property (nonatomic, strong) UIButton * distanceButton;
 @property (nonatomic, assign) int  pageNumber;
 
 @property (nonatomic, strong) UITextField * userName;
@@ -30,6 +32,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    
+//    NSDictionary * dict = @{@"data":@"{\"invoiceIdList\":[127]}"};
+//    
+//    NSLog(@"===>>>>%@",dict);
+//                NSError *err;
+//    NSData * jsonData = [[dict objectForKey:@"data"] dataUsingEncoding:NSUTF8StringEncoding];
+//    NSDictionary * dicts = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
+//    NSArray * arry = dicts[@"invoiceIdList"];
+//    NSMutableArray * localArry = [[NSMutableArray alloc] init];
+//    [localArry addObjectsFromArray:arry];
+//    NSLog(@"======>>>>>%@",localArry);
+//    
+//    
+//    
+//    return;
+    
+    
+    
+    
     self.plusButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.plusButton.frame = CGRectMake(50, 100, 100, 50);
     self.plusButton.backgroundColor = [UIColor redColor];
@@ -69,14 +91,19 @@
     [self.view addSubview:self.delButton];
     [self.delButton addTarget:self action:@selector(delAction) forControlEvents:UIControlEventTouchUpInside];
 
-
+    self.distanceButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.distanceButton.frame = CGRectMake(50, 450, 100, 50);
+    self.distanceButton.backgroundColor = [UIColor redColor];
+    [self.distanceButton setTitle:@"排重赛选" forState:UIControlStateNormal];
+    [self.view addSubview:self.distanceButton];
+    [self.distanceButton addTarget:self action:@selector(distanceAction) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
 -(void)plusAction {
     NSLog(@"添加");
     NSDictionary * dict = [[NSDictionary alloc] init];
-    dict = @{@"invoceid":@"2001",@"kpf":@"京东",@"titles":@"测试公司"};
+    dict = @{@"invoceid":@"2001",@"kpf":@"京东dddd",@"titles":@"测试公司"};
     
     [[HZCoreMannger defaultManager] insertDataWithClassName:@"Invoce" attriDic:dict];
 }
@@ -101,10 +128,6 @@
         
     }
 }
-
-
-
-
 -(void)editAction {
     NSLog(@"更新");
     NSDictionary * dict = [[NSDictionary alloc] init];
@@ -120,7 +143,16 @@
 }
 
 
+-(void)distanceAction {
+    
 
+    NSArray * selectArry = [[HZCoreMannger defaultManager] selectDistinctDataFromClassName:@"Invoce" predicate:nil sortkeys:nil Distinctkeys:@[@"kpf",@"titles"]];
+        for (NSManagedObject *item in selectArry) {
+            NSString *typeStr = [item valueForKey:@"kpf"];
+            NSString *typeStrTitle = [item valueForKey:@"titles"];
+            NSLog(@"=============>>>>%@===@%@",typeStr,typeStrTitle);
+        }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
